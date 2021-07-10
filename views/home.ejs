@@ -1,0 +1,29 @@
+<%- include('partials/homeheader.ejs'); -%>
+
+<div class="home-news max-width-4 m-auto font3 my-2">
+  <div class="home-newsnavbar">
+    <h2>Read</h2>
+  </div>
+
+  <%posts.reverse().forEach(function(posts){%>
+
+  <div class="news">
+    <div class="news-img">
+      <img src="<%=posts.image%>" alt="" />
+    </div>
+    <div class="news-content font3">
+      <a href="/posts/<%=posts._id%>">
+        <h3><%= posts.title %></h3>
+      </a>
+
+      <span><%=posts.date%></span>
+      <p>
+        <%= posts.content.substring(0,200) +"..."%>
+        <a href="/posts/<%=posts._id%>" style="color: #161d6f">Read more</a>
+      </p>
+      <div class="writer-name">Wordzz by <%=posts.author%></div>
+    </div>
+  </div>
+  <% })%>
+</div>
+<%- include('partials/footer'); -%>

@@ -1,0 +1,52 @@
+/* navbar responsive */
+@media screen and (max-width: 1030px) {
+  .nav-right ul {
+    margin: auto;
+  }
+}
+
+/* news section responsive */
+@media screen and (max-width: 1030px) {
+  .news {
+    flex-direction: column;
+    margin: 34px 0;
+  }
+
+  .news-content {
+    padding: 0px;
+    margin-top: 10px;
+  }
+
+  .read-box {
+    flex-direction: column;
+  }
+
+  .read-img img {
+    height: 240px;
+    width: 361px;
+  }
+
+  .banner-text h3 {
+    font-size: 20px;
+    top: 71%;
+    left: 8%;
+  }
+
+  .banner-text h2 {
+    font-size: 20px;
+    top: 64%;
+    left: 8%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  /* .news img{
+        width:260px
+    } */
+}
+
+/* @media screen and (min-width:1024px){
+    .mobile-downarrow{
+        display: none;
+    }
+} */

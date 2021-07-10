@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-banner {
+  background-image: url("../image/MCGcrowd.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 80vh;
+}
+
+/* nav section */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font1);
+  align-items: center;
+  padding-top: 20px;
+}
+
+.nav-left {
+  font-size: 32px;
+  display: flex;
+}
+
+.nav-left span a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right ul {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  margin: 0 43px;
+}
+
+.nav-right ul li {
+  list-style: none;
+  margin: 0 14px;
+  font-family: var(--font3);
+}
+
+.nav-right ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.banner-text h2 {
+  color: #fff;
+  font-family: var(--font3);
+  font-weight: normal;
+  font-size: 30px;
+  position: absolute;
+  top: 58%;
+  left: 5%;
+}
+
+.banner-text h3 {
+  color: #fff;
+  font-family: var(--font3);
+  font-weight: normal;
+  font-size: 30px;
+  position: absolute;
+  top: 68%;
+  left: 5%;
+}
+
+
+
+/* latest news section */
+.home-news {
+  padding-top: 10px;
+}
+
+.home-newsnavbar {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home-newsnavbar .search {
+  color: grey;
+}
+.news {
+  display: flex;
+  margin: 30px 0;
+  background: #fff;
+  padding: 21px 12px;
+}
+
+.news img {
+  width: 300px;
+  border-radius: 2px;
+}
+
+.news-content {
+  padding: 0px 36px;
+}
+
+.news-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.news-content .writer-name {
+  font-family: var(--font2);
+  font-size: 11px;
+}
+
+.news-content span {
+  color: grey;
+  font-size: 11px;
+}
+
+.news-content p {
+  padding: 24px 0;
+  line-height: 1.6;
+}
+
+
+.style-six {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(82, 77, 77, 0.3);
+  border-bottom: 1px solid rgba(82, 77, 77, 0.3);
+}

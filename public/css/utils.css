@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Play&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+
+:root {
+  --main-bg-color: #686d76;
+  --font1: "Baloo 2", cursive;
+  --font2: "Play", sans-serif;
+  --font3: "Montserrat", sans-serif;
+  --font4: "Open Sans", sans-serif;
+}
+
+.font1 {
+  font-family: "Baloo 2", cursive;
+}
+.font2 {
+  font-family: "Play", sans-serif;
+}
+.font3 {
+  font-family: "Montserrat", sans-serif;
+}
+.font-4 {
+  font-family: "Open Sans", sans-serif;
+}
+
+.max-width-1 {
+  max-width: 80vw;
+}
+
+.max-width-2 {
+  max-width: 70vw;
+}
+
+.max-width-3 {
+  max-width: 90vw;
+}
+
+.max-width-4 {
+  max-width: 85vw;
+}
+
+.max-width-5 {
+  max-width: 60vw;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.my-2 {
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+.btn {
+  padding: 0px 5px;
+  font-size: 15px;
+  border: 2px solid black;
+  border-radius: 7px;
+  font-family: var(--font2);
+  cursor: pointer;
+  outline-style: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  color: white;
+  background-color: var(--main-bg-color);
+}
+
+.form-input {
+  padding: 3px 5px;
+  font-size: 15px;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin: 0px 10px;
+  font-family: var(--font2);
+}
