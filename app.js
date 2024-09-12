@@ -33,10 +33,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //1st step to connect mongoose to application after requiring mongoose.
-let uri =
-  "mongodb+srv://rakshit:" +
-  process.env.PW +
-  "@cluster0.kykp9.mongodb.net/CrickbuzzDB";
+let uri = `mongodb+srv://users:${process.env.DB_PW}@cluster0.6kynm.mongodb.net/`;
+
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
