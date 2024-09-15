@@ -167,5 +167,5 @@ if (port == null || port == "") {
 }
 
 app.listen(port, function () {
-  console.log("server connected");
+  console.log("Server listening on Port:", `http://localhost:${port}`);
 });
