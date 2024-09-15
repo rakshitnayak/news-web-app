@@ -15,6 +15,11 @@
       integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
       crossorigin="anonymous"
     />
+    <style>
+      .login-user {
+        color: white;
+      }
+    </style>
   </head>
 
   <body>
@@ -23,6 +28,9 @@
         <div class="nav-left">
           <span><a href="home">cricwordzz</a></span>
         </div>
+        <% if (loginUserId) { %>
+        <h2 class="login-user">Hi welcome <%= loginUserId %></h2>
+        <% } %> <% if (!loginUserId) { %>
         <div class="nav-right">
           <ul>
             <li><a href="register">Register</a></li>
@@ -33,6 +41,7 @@
             <li><a href="login">login</a></li>
           </ul>
         </div>
+        <% } %>
       </nav>
     </section>
   </body>

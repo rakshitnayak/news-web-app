@@ -1,5 +1,8 @@
 <%- include("partials/header"); -%>
 <h1>Compose</h1>
+<% if (userId) { %>
+  <h2>Hi welcome <%= userId %></h2>
+<% } %>
 <form class="" action="/compose" method="post">
   <div class="form-group">
     <div style="padding-bottom: 20px">

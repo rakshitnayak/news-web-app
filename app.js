@@ -4,31 +4,29 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const _ = require("lodash");
-
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-// var md5 = require("md5");//level 4 authentication
-
-/**using salting + hashing with bcrypt package */
-// const bcrypt = require("bcrypt");
-// const saltRounds = 10;
+const { userSchema, postSchema } = require("./server/schemas/user");
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
 app.use(
   session({
+    name: "sid",
     secret: "our little secret.",
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      maxAge: 86400,
+      sameSite: true,
+    },
   })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -41,36 +39,26 @@ mongoose.connect(uri, {
   useCreateIndex: true,
 });
 
-//schema for password and email storages of admins
-const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
-});
-
 userSchema.plugin(passportLocalMongoose);
 
 const User = new mongoose.model("User", userSchema);
-passport.use(User.createStrategy());
+const Post = mongoose.model("Post", postSchema);
 
+passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-const postSchema = {
-  image: String,
-  title: String,
-  content: String,
-  author: String,
-  date: String,
-};
-
-const Post = mongoose.model("Post", postSchema);
-
-let posts = [];
 
 app.get("/", function (req, res) {
+  const { userId } = req.session;
+  let loginUserId;
+  if (req.isAuthenticated() && userId) {
+    loginUserId = userId;
+  }
   Post.find({}, function (err, posts) {
     res.render("home", {
       posts: posts,
+      loginUserId,
     });
   });
 });
@@ -78,9 +66,11 @@ app.get("/", function (req, res) {
 app.get("/posts", function (req, res) {
   res.render("post", {});
 });
+
 app.get("/articles", function (req, res) {
   res.render("post", {});
 });
+
 app.get("/login", function (req, res) {
   res.render("login");
 });
@@ -90,8 +80,9 @@ app.get("/register", function (req, res) {
 });
 
 app.get("/compose", function (req, res) {
+  const { userId } = req.session;
   if (req.isAuthenticated()) {
-    res.render("compose");
+    res.render("compose", { userId: userId });
   } else {
     res.redirect("/login");
   }
@@ -107,6 +98,7 @@ app.post("/register", function (req, res) {
         res.redirect("/register");
       } else {
         passport.authenticate("local")(req, res, function () {
+          req.session.userId = req.user.username;
           res.redirect("/compose");
         });
       }
@@ -125,6 +117,7 @@ app.post("/login", function (req, res) {
       console.log(err);
     } else {
       passport.authenticate("local")(req, res, function () {
+        req.session.userId = req.user.username;
         res.redirect("/compose");
       });
     }
