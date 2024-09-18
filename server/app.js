@@ -8,7 +8,8 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-const { userSchema, postSchema } = require("./server/schemas/user");
+const  userSchema = require("./schemas/user");
+const postSchema = require("./schemas/post");
 
 const app = express();
 

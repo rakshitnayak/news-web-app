@@ -7,12 +7,4 @@ const userSchema = new mongoose.Schema({
   password: String,
 });
 
-const postSchema = new mongoose.Schema({
-  image: String,
-  title: String,
-  content: String,
-  author: String,
-  date: String,
-});
-
-module.exports = { userSchema, postSchema };
+module.exports = userSchema;
