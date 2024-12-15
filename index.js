@@ -172,6 +172,10 @@ app.get("/posts/:postId", async (req, res) => {
   }
 });
 
+app.get("/live", async (req, res) => {
+  res.status(200).send("Hey I am live");
+});
+
 // Dynamic Port Handling
 const port = process.env.PORT || 3000;
 
